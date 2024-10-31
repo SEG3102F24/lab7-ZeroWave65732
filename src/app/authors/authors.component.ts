@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 
 export class AuthorsComponent {
   author: any;
+  noAuthor: any;
 
   constructor(private http: HttpClient) {}
 
@@ -27,7 +28,11 @@ export class AuthorsComponent {
       .subscribe(
         (data: any) => {
           this.author = data;
+          this.noAuthor = null;
         },
+        (error) => {
+          this.noAuthor = true;
+        }
       );
   }
 }

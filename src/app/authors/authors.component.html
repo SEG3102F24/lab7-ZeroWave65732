@@ -18,3 +18,7 @@
   <p><strong>Self:</strong> <a [href]="author._links.self.href">{{ author._links.self.href }}</a></p>
   <p><strong>Bio:</strong> <a [href]="author._links.bio.href">{{ author._links.bio.href }}</a></p>
 </div>
+
+<div *ngIf="noAuthor">
+  <p style="color: red;">Author Does Not Exist!</p>
+</div>
