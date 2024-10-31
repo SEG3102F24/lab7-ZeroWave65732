@@ -1,0 +1,20 @@
+<div>
+  <h2>Search our Authors</h2>
+  <div>
+    <label for="authorID">Author Id:</label>
+    <input type="text" #authorID id="authorID" required />
+    <button (click)="submit(authorID.value)">Search</button>
+  </div>
+</div>
+
+<div *ngIf="author">
+  <h3>Author Details:</h3>
+  <p><strong>ID:</strong> {{ author.id }}</p>
+  <p><strong>First Name:</strong> {{ author.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ author.lastName }}</p>
+  <p><strong>Books:</strong> {{ author.books.length > 0 ? author.books.join(', ') : 'No books available' }}</p>
+
+  <h4>Links:</h4>
+  <p><strong>Self:</strong> <a [href]="author._links.self.href">{{ author._links.self.href }}</a></p>
+  <p><strong>Bio:</strong> <a [href]="author._links.bio.href">{{ author._links.bio.href }}</a></p>
+</div>
